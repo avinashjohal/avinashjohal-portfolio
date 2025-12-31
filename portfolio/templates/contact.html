@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block title %}Contact · Portfolio{% endblock %}
+{% block content %}
+<section class="contact">
+  <h2>Contact</h2>
+  <form method="post" class="contact-form">
+    {{ form.csrf_token }}
+    <div class="form-field">
+      <label for="name">Name</label>
+      {{ form.name(id='name', placeholder='Your name') }}
+      {% for e in form.name.errors %}<div class="error">{{ e }}</div>{% endfor %}
+    </div>
+    <div class="form-field">
+      <label for="email">Email</label>
+      {{ form.email(id='email', placeholder='you@example.com') }}
+      {% for e in form.email.errors %}<div class="error">{{ e }}</div>{% endfor %}
+    </div>
+    <div class="form-field">
+      <label for="message">Message</label>
+      {{ form.message(id='message', placeholder='How can I help?') }}
+      {% for e in form.message.errors %}<div class="error">{{ e }}</div>{% endfor %}
+    </div>
+    <button class="btn btn-primary" type="submit">Send</button>
+  </form>
+  <div class="social-links">
+    <a href="https://github.com/avinashjohal" target="_blank" rel="noopener">GitHub</a>
+    <a href="https://www.linkedin.com/in/avinashjohal" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://x.com/avinashjohal" target="_blank" rel="noopener">X</a>
+  </div>
+</section>
+{% endblock %}

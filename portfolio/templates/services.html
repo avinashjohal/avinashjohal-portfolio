@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}Services · Portfolio{% endblock %}
+{% block content %}
+<section class="services">
+  <h2>Services</h2>
+  <div class="grid">
+    {% for s in services %}
+    <div class="card">
+      <h3>{{ s.title }}</h3>
+      <p>{{ s.description }}</p>
+      <div class="price">{{ s.price }}</div>
+      <a href="{{ url_for('contact') }}" class="btn btn-primary">Inquire</a>
+    </div>
+    {% endfor %}
+  </div>
+{% endblock %}
+

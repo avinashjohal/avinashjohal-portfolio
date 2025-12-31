@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %}About · Portfolio{% endblock %}
+{% block content %}
+<section class="about">
+  <div class="about-grid">
+    <div>
+      <h2>About</h2>
+      <p>I am a Cybersecurity &amp; Forensics student with interests in web application security, network defense, malware analysis, and evidence-based investigations. I enjoy building tooling for detection and creating clear, actionable reports.</p>
+      <div class="actions">
+        <a href="{{ url_for('static', filename='resume.pdf') }}" class="btn btn-primary">Download Resume</a>
+      </div>
+    </div>
+    <div>
+      <h2>Skills</h2>
+      <ul class="skills">
+        {% for s in skills %}
+        <li>
+          <span>{{ s.name }}</span>
+          <div class="bar"><div style="width: {{ s.level }}%"></div></div>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</section>
+{% endblock %}
+

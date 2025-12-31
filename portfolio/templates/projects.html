@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block title %}Projects · Portfolio{% endblock %}
+{% block content %}
+<section class="projects">
+  <div class="projects-header">
+    <h2>Projects</h2>
+    <div class="filters">
+      <button class="btn btn-secondary" data-filter="all">All</button>
+      <button class="btn btn-secondary" data-filter="Python">Python</button>
+      <button class="btn btn-secondary" data-filter="SIEM">SIEM</button>
+      <button class="btn btn-secondary" data-filter="Forensics">Forensics</button>
+      <button class="btn btn-secondary" data-filter="OWASP">OWASP</button>
+    </div>
+  </div>
+
+  <div class="grid" id="projectGrid">
+    {% for p in projects %}
+    <div class="card project" data-tags="{{ ','.join(p.tags) }}">
+      <div class="thumb">
+        <img src="{{ url_for('static', filename=p.image) }}" alt="{{ p.title }}" />
+      </div>
+      <div class="body">
+        <h3>{{ p.title }}</h3>
+        <p>{{ p.description }}</p>
+        <div class="tags">
+          {% for t in p.tags %}<span class="tag">{{ t }}</span>{% endfor %}
+        </div>
+        <div class="actions">
+          {% if p.repo %}<a class="btn btn-primary" href="{{ p.repo }}" target="_blank">GitHub</a>{% endif %}
+          {% if p.live %}<a class="btn btn-secondary" href="{{ p.live }}" target="_blank">Live</a>{% endif %}
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}
+

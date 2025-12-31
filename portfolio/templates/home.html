@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %}Home · Portfolio{% endblock %}
+{% block content %}
+<section class="hero">
+  <div class="hero-text">
+    <h1>Cybersecurity &amp; Forensics</h1>
+    <p>Student focused on web security, digital forensics, and detection engineering.</p>
+    <div class="hero-actions">
+      <a href="{{ url_for('projects') }}" class="btn btn-primary">View Projects</a>
+      <a href="{{ url_for('contact') }}" class="btn btn-secondary">Contact</a>
+    </div>
+  </div>
+</section>
+
+<section class="highlights">
+  <div class="grid">
+    <div class="card">
+      <h3>Web Security</h3>
+      <p>OWASP testing, vulnerability triage, remediation guidance.</p>
+    </div>
+    <div class="card">
+      <h3>Digital Forensics</h3>
+      <p>Evidence collection, timeline analysis, reporting.</p>
+    </div>
+    <div class="card">
+      <h3>Threat Detection</h3>
+      <p>SIEM rules, dashboards, threat hunting workflows.</p>
+    </div>
+  </div>
+</section>
+{% endblock %}
+
